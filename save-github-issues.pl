@@ -17,6 +17,7 @@
 ################################################################################
 
 use common::sense;
+use DBI;
 use LWP::UserAgent;
 use JSON;
 
@@ -32,6 +33,33 @@ our $github_api_uri = "https://api.github.com";
 # can recognize our program.
 our $user_agent = LWP::UserAgent->new
     and $user_agent->agent("save-github-issues/$VERSION");
+
+################################################################################
+
+# Create databasa it wich we store our issue informaion.  Connect to
+# it and raise all errors as fatal.  And finally creature the table we
+# store issue information without in it does not already exist.
+
+our $database = DBI->connect("dbi:SQLite:./issues.sqlite");
+
+$database->{RaiseError} = 1;
+
+$database->do(q[
+    CREATE TABLE IF NOT EXISTS issues (
+        -- The URL the to the issue on Githo.
+        url text,
+
+        -- The title of the issue.
+        title text,
+
+        --The current status, i.e. 'opened', 'closed, 'assigned' etc.
+        type text,
+
+        -- THe complete JSON we reiceve from Github.
+        json text
+    );
+]);
+
 
 ################################################################################
 
