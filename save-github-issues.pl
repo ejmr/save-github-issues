@@ -169,28 +169,42 @@ for ($user) {
     }
 }
 
-
 __END__
 
 =head1 NAME
 
-save-github-issues  ::  A program for backing up Github project issues
+save-github-issues.pl - A program for backing up Github project issues
 
 =head1 SYNOPSIS
 
+
+
+=head1 USAGE
+
 $ save-github-issues --user <...> [--repo <...> --repo <...>]
 
-  Options
-    --user    The name of the user whose repositories we want to
-              save issues from.
+=over
 
-    --repo    The name the repository whose issues we want to save.
-              This option can appear multiple times to save issues
-              from muiltple repositories at once.  If this option
-              is not provided then the program will save the issues
-              for every repository the user owns.
+=item --user The name of the user whose repositories we want to save issues from.
+
+=item --repo The name the repository whose issues we want to save.
+
+This option can appear multiple times to save issues
+from muiltple repositories at once.  If this option
+is not provided then the program will save the issues
+for every repository the user owns.
+
+=back
 
 The program will create a file called I<issues.sqlite> that contains
 the url, title, status, and raw JSON for every issue.
+
+=head1 AUTHOR
+
+Eric James Michael Ritz C<lobbyjones@gmail.com>
+
+=head1 LICENSE
+
+GPL 3.
 
 =cut
