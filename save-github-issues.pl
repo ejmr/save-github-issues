@@ -1,6 +1,6 @@
 #!/usr/bin/env perl
 #
-# save-github-issues <account> <repository>
+# save-github-issues
 #
 # This program saves all of the issues for given repository owned by
 # the given account.  This provides a way to backup the issue data,
