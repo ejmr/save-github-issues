@@ -17,11 +17,13 @@
 ################################################################################
 
 use common::sense;
+use DBI;
 use LWP::UserAgent;
 use JSON;
 
 our $VERSION = "1.0";
 
+
 ################################################################################
 
 # The base URI for the Github API.
@@ -33,6 +35,34 @@ our $github_api_uri = "https://api.github.com";
 our $user_agent = LWP::UserAgent->new
     and $user_agent->agent("save-github-issues/$VERSION");
 
+
+################################################################################
+
+# Create databasa it wich we store our issue informaion.  Connect to
+# it and raise all errors as fatal.  And finally creature the table we
+# store issue information without in it does not already exist.
+
+our $database = DBI->connect("dbi:SQLite:./issues.sqlite");
+
+$database->{RaiseError} = 1;
+
+$database->do(q[
+    CREATE TABLE IF NOT EXISTS issues (
+        -- The URL the to the issue on Githo.
+        url text,
+
+        -- The title of the issue.
+        title text,
+
+        --The current status, i.e. 'opened', 'closed, 'assigned' etc.
+        type text,
+
+        -- THe complete JSON we reiceve from Github.
+        json text
+    );
+]);
+
+
 ################################################################################
 
 # Returns an array reference representing the issue information for
@@ -60,4 +90,25 @@ sub get_issues_for($) {
     die($response->message);
 }
 
+# Takes an issue represented as a hash reference and saves it in the
+# database.  It replaces the issue if it already exists.  The function
+# returns the result of the database insertion.  Normally we ignore
+# this value.
+sub save_issue(_) {
+    my ($issue) = @_;
+    my $insert = $database->prepare(q[
+        INSERT OR REPLACE INTO issues
+            (url, title, type, json)
+        VALUES (?, ?, ?, ?);
+    ]);
+
+    return $insert->execute(
+        $issue->{"html_url"},
+        $issue->{"title"},
+        $issue->{"state"},
+        to_json($issue),
+    );
+}
+
+
 __END__

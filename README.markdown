@@ -5,6 +5,15 @@ issues for backup purposes, since Github currently does not provide
 that functionality.
 
 
+# Required Perl Modules
+
+1. `common:sense`
+2. `DBI`
+3. `DBD::SQLite`
+4. `LWP::UserAgent`
+5. `JSON`
+
+
 
 # License
 
