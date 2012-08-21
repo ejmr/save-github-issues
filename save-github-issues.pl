@@ -20,9 +20,10 @@ use strict;
 use warnings;
 
 use DBI;
-use Getopt::Long;
 use JSON;
 use LWP::UserAgent;
+use Pod::Usage;
+use Getopt::Long;
 
 our $VERSION = "1.1";
 
@@ -151,9 +152,7 @@ GetOptions(
     "repo=s@" => \@repositories,
 );
 
-unless ($user) {
-    say "Error: Must provide a Github username" and exit(1);
-}
+pod2usage() and exit unless $user;
 
 # If the user provided no repositories then grab the issues for all of
 # their repos.
