@@ -8,7 +8,7 @@ that functionality.
 
 # Required Perl Modules
 
-1. `common:sense`
+1. `common::sense`
 2. `DBI`
 3. `DBD::SQLite`
 4. `LWP::UserAgent`
