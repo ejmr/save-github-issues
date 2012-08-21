@@ -186,9 +186,9 @@ $ save-github-issues --user <...> [--repo <...> --repo <...>]
 
 =over
 
-=item --user The name of the user whose repositories we want to save issues from.
+=item -u, --user The name of the user whose repositories we want to save issues from.
 
-=item --repo The name the repository whose issues we want to save.
+=item -r, --repo The name the repository whose issues we want to save.
 
 This option can appear multiple times to save issues
 from muiltple repositories at once.  If this option
