@@ -161,9 +161,9 @@ unless (@repositories) {
 }
 
 for ($user) {
-    say "Saving issues for user $user\n";
+    print "Saving issues for user $user\n";
     foreach my $repo (@repositories) {
-        say "Saving issues for $repo";
+        print "Saving issues for $repo\n";
         sleep(2);
         my $issues = get_issues_for $repo;
         save_issue for @$issues;
