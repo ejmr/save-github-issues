@@ -10,7 +10,7 @@ WriteMakefile(
     ($ExtUtils::MakeMaker::VERSION >= 6.3002
       ? ('LICENSE'=> 'gpl') : ()),
     PREREQ_PM => {
-        'LWP'         => 6,
+        'LWP::Protocol::https' => 0,
         'JSON'        => 2,
         'DBD::SQLite' => 0,
     },  
