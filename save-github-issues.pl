@@ -22,7 +22,7 @@ use Getopt::Long;
 use JSON;
 use LWP::UserAgent;
 
-our $VERSION = "1.0";
+our $VERSION = "1.1";
 
 
 ################################################################################
@@ -114,6 +114,30 @@ sub save_issue(_) {
 
 ################################################################################
 
+# Returns an array of all of the repositories for a given user.
+sub get_repos_for($) {
+    my ($user) = @_;
+    my $uri = "${github_api_uri}/users/$user/repos";
+    my $request = HTTP::Request->new(GET => $uri);
+    my $response = $user_agent->request($request);
+
+    unless ($response->is_success) {
+        die($response->message);
+    }
+
+    my @repositories = ();
+    my $repo_data = decode_json($response->content);
+
+    for (@$repo_data) {
+        push @repositories => $_->{"name"};
+    }
+
+    return @repositories;
+}
+
+
+################################################################################
+
 # Main logic where we parse command-line arguments and actually fetch
 # and save the issues from Github.
 
@@ -124,6 +148,16 @@ GetOptions(
     "user=s" => \$user,
     "repo=s@" => \@repositories,
 );
+
+unless ($user) {
+    say "Error: Must provide a Github username" and exit(1);
+}
+
+# If the user provided no repositories then grab the issues for all of
+# their repos.
+unless (@repositories) {
+    @repositories = get_repos_for($user);
+}
 
 for ($user) {
     say "Saving issues for user $user\n";
@@ -143,14 +177,17 @@ save-github-issues  ::  A program for backing up Github project issues
 
 =head1 SYNOPSIS
 
-$ save-github-issues --user ... --repo ... --repo ...
+$ save-github-issues --user <...> [--repo <...> --repo <...>]
 
   Options
     --user    The name of the user whose repositories we want to
               save issues from.
+
     --repo    The name the repository whose issues we want to save.
               This option can appear multiple times to save issues
-              from muiltple repositories at once.
+              from muiltple repositories at once.  If this option
+              is not provided then the program will save the issues
+              for every repository the user owns.
 
 The program will create a file called I<issues.sqlite> that contains
 the url, title, status, and raw JSON for every issue.
