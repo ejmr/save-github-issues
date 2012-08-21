@@ -22,7 +22,7 @@ use Getopt::Long;
 use JSON;
 use LWP::UserAgent;
 
-our $VERSION = "1.0";
+our $VERSION = "1.1";
 
 
 ################################################################################
