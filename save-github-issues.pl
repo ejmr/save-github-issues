@@ -71,7 +71,7 @@ $database->do(q[
 # variable $_ right before we call this function.  If we cannot fetch
 # the info then the program will die with an error.
 #
-# The $_ requirement is actually to help readability.  It forces is to
+# The $_ requirement is actually to help readability.  It forces us to
 # write constructs such as
 #
 #     for ("ejmr") { get_issues_for("php-mode") }
