@@ -18,8 +18,9 @@
 
 use common::sense;
 use DBI;
-use LWP::UserAgent;
+use Getopt::Long;
 use JSON;
+use LWP::UserAgent;
 
 our $VERSION = "1.0";
 
@@ -108,6 +109,29 @@ sub save_issue(_) {
         $issue->{"state"},
         to_json($issue),
     );
+}
+
+
+################################################################################
+
+# Main logic where we parse command-line arguments and actually fetch
+# and save the issues from Github.
+
+our $user = q();
+our @repositories = ();
+
+GetOptions(
+    "user=s" => \$user,
+    "repo=s@" => \@repositories,
+);
+
+for ($user) {
+    say "Saving issues for user $user\n";
+    foreach my $repo (@repositories) {
+        say "Saving issues for $repo";
+        my $issues = get_issues_for $repo;
+        save_issue for @$issues;
+    }
 }
 
 
