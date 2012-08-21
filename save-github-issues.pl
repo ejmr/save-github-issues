@@ -149,6 +149,10 @@ GetOptions(
     "repo=s@" => \@repositories,
 );
 
+unless ($user) {
+    say "Error: Must provide a Github username" and exit(1);
+}
+
 # If the user provided no repositories then grab the issues for all of
 # their repos.
 unless (@repositories) {
