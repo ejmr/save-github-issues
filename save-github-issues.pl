@@ -148,8 +148,8 @@ our $user = q();
 our @repositories = ();
 
 GetOptions(
-    "user=s" => \$user,
-    "repo=s@" => \@repositories,
+    "u|user=s" => \$user,
+    "r|repo=s@" => \@repositories,
 );
 
 pod2usage() and exit unless $user;
