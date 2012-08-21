@@ -20,10 +20,10 @@ The program also requires [SQLite](http://sqlite.org).
 
 # Usage
 
-The program requires two arguments:
+The program accepts the following arguments:
 
-1. `--user`: This is the user whose owns the repositories you want
-issues from.
+1. `--user`: **Required.** This is the user whose owns the
+repositories you want issues from.
 
 2. `--repo`: This names the repository whose issues you want to save.
 This option may appear multiple times.  *It is optional.*  If you do
