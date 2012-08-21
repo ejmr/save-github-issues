@@ -90,5 +90,25 @@ sub get_issues_for($) {
     die($response->message);
 }
 
+# Takes an issue represented as a hash reference and saves it in the
+# database.  It replaces the issue if it already exists.  The function
+# returns the result of the database insertion.  Normally we ignore
+# this value.
+sub save_issue(_) {
+    my ($issue) = @_;
+    my $insert = $database->prepare(q[
+        INSERT OR REPLACE INTO issues
+            (url, title, type, json)
+        VALUES (?, ?, ?, ?);
+    ]);
+
+    return $insert->execute(
+        $issue->{"html_url"},
+        $issue->{"title"},
+        $issue->{"state"},
+        to_json($issue),
+    );
+}
+
 
 __END__
