@@ -16,7 +16,9 @@
 #
 ################################################################################
 
-use common::sense;
+use strict;
+use warnings;
+
 use DBI;
 use Getopt::Long;
 use JSON;
