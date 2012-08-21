@@ -163,6 +163,7 @@ for ($user) {
     say "Saving issues for user $user\n";
     foreach my $repo (@repositories) {
         say "Saving issues for $repo";
+        sleep(2);
         my $issues = get_issues_for $repo;
         save_issue for @$issues;
     }
