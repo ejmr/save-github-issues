@@ -25,10 +25,10 @@ shown first followed by the longer version:
 1. `-u, --user`: **Required.** This is the user whose owns the
 repositories you want issues from.
 
-2. `-r, --repo`: This names the repository whose issues you want to
-save.  This option may appear multiple times.  *It is optional.* If
-you do not provide any `--repo` option then the program will download
-the issues for every repository the user owns.
+2. `-r, --repo`: **Optional.** This names the repository whose issues
+you want to save.  This option may appear multiple times.  If you do
+not provide any `--repo` option then the program will download the
+issues for every repository the user owns.
 
 An example:
 
