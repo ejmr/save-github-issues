@@ -53,8 +53,8 @@ An example:
     Saving issues for php-mode
     Saving issues for bbcode-mode
 
-This creates a files called `issues.sqlite` in the current directory.
-It is a database with the following columns:
+This creates a file called `issues.sqlite` in the current directory.
+It is a database with a single table that has the following columns:
 
 1. `url`: The URL to the issue on Github.
 
