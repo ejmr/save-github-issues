@@ -27,18 +27,18 @@ use LWP::UserAgent;
 use Pod::Usage;
 use Getopt::Long;
 
-our $VERSION = "1.3 ";
+my $VERSION = "1.3";
 
 
 ################################################################################
 
 # The base URI for the Github API.
-our $github_api_uri = "https://api.github.com";
+my $github_api_uri = "https://api.github.com";
 
 # Our user agent (i.e. browser) for communicating with Github.  We
 # give it a unique user agent name so that server logs over at Github
 # can recognize our program.
-our $user_agent = LWP::UserAgent->new
+my $user_agent = LWP::UserAgent->new
     and $user_agent->agent("save-github-issues/$VERSION");
 
 
@@ -48,7 +48,7 @@ our $user_agent = LWP::UserAgent->new
 # it and raise all errors as fatal.  And finally creature the table we
 # store issue information without in it does not already exist.
 
-our $database = DBI->connect("dbi:SQLite:./issues.sqlite");
+my $database = DBI->connect("dbi:SQLite:./issues.sqlite");
 
 $database->{RaiseError} = 1;
 
@@ -146,8 +146,8 @@ sub get_repos_for($) {
 # Main logic where we parse command-line arguments and actually fetch
 # and save the issues from Github.
 
-our $user = q();
-our @repositories = ();
+my $user = q();
+my @repositories = ();
 
 GetOptions(
     "u|user=s" => \$user,
