@@ -66,7 +66,7 @@ that the user exported the issues from a different host.
 
 # Contributors
 
-1. Sqeeks `<squeek@cpan.org>`
+1. Squeeks `<squeek@cpan.org>`
 
 
 
