@@ -51,6 +51,8 @@ and so on.
 is useful so you have a complete backup of all of the information
 which the Github API provides.
 
+
+
 # Future Plans
 
 I am investigating the possibility of extending this program to import
@@ -59,6 +61,12 @@ issues into other project hosting sites such as
 to transfer their issues from one hosting site to another.  This will
 include support to also import issues into Github itself, in the event
 that the user exported the issues from a different host.
+
+
+
+# Contributors
+
+1. Sqeeks `<squeek@cpan.org>`
 
 
 
