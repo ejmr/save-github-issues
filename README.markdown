@@ -82,10 +82,14 @@ that the user exported the issues from a different host.
 
 # Contributors
 
-1. Squeeks `<squeek@cpan.org>`
+1. [Squeeks][1] `<squeek@cpan.org>`
 
 
 
 # License
 
 GNU General Public License Version 3
+
+
+
+[1]: https://github.com/squeeks/
