@@ -27,7 +27,7 @@ use LWP::UserAgent;
 use Pod::Usage;
 use Getopt::Long;
 
-my $VERSION = "1.3";
+my $VERSION = "1.4";
 
 
 ################################################################################
