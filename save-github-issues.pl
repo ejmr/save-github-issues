@@ -38,8 +38,9 @@ my $github_api_uri = "https://api.github.com";
 # Our user agent (i.e. browser) for communicating with Github.  We
 # give it a unique user agent name so that server logs over at Github
 # can recognize our program.
-my $user_agent = LWP::UserAgent->new
-    and $user_agent->agent("save-github-issues/$VERSION");
+my $user_agent = new LWP::UserAgent(
+    agent => "save-github-issues/$VERSION",
+);
 
 
 ################################################################################
@@ -48,9 +49,9 @@ my $user_agent = LWP::UserAgent->new
 # it and raise all errors as fatal.  And finally creature the table we
 # store issue information without in it does not already exist.
 
-my $database = DBI->connect("dbi:SQLite:./issues.sqlite");
-
-$database->{RaiseError} = 1;
+my $database = DBI->connect('dbi:SQLite:./issues.sqlite', {
+    RaiseError => 1,
+});
 
 $database->do(q[
     CREATE TABLE IF NOT EXISTS issues (
