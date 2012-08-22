@@ -83,6 +83,7 @@ that the user exported the issues from a different host.
 # Contributors
 
 1. [Squeeks][1] `<squeek@cpan.org>`
+2. [Mark Canlas][2]
 
 
 
@@ -93,3 +94,4 @@ GNU General Public License Version 3
 
 
 [1]: https://github.com/squeeks/
+[2]: https://github.com/mcanlas/
