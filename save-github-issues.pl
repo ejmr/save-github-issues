@@ -68,6 +68,12 @@ $database->do(q[
     );
 ]);
 
+my $insert = $database->prepare(q[
+    INSERT OR REPLACE INTO issues
+        (url, title, type, json)
+    VALUES (?, ?, ?, ?);
+]);
+
 
 ################################################################################
 
@@ -102,11 +108,6 @@ sub get_issues_for($) {
 # this value.
 sub save_issue(_) {
     my ($issue) = @_;
-    my $insert = $database->prepare(q[
-        INSERT OR REPLACE INTO issues
-            (url, title, type, json)
-        VALUES (?, ?, ?, ?);
-    ]);
 
     return $insert->execute(
         $issue->{"html_url"},
