@@ -92,9 +92,12 @@ my $insert = $database->prepare(q[
 sub get_issues_for($) {
     my ($repo) = @_;
     my $user = $_;
-    my $uri = "${github_api_uri}/repos/$user/$repo/issues";
-    my $request = HTTP::Request->new(GET => $uri);
-    my $response = $user_agent->request($request);
+    my $response = do {
+        my $uri = "${github_api_uri}/repos/$user/$repo/issues";
+        my $request = HTTP::Request->new(GET => $uri);
+
+        $user_agent->request($request);
+    };
 
     if ($response->is_success) {
         return decode_json($response->content);
