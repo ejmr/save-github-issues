@@ -6,6 +6,21 @@ that functionality.
 
 
 
+# Installation
+
+First download the source into one directory and then run the follow
+commands:
+
+    $ perl Makefile.PL
+    $ make
+    $ make test    # (Optional)
+    $ make insall
+
+This will automatically install any Perl modules you do not have that
+the program requires, which appear below.
+
+
+
 # Required Perl Modules
 
 1. `DBI`
