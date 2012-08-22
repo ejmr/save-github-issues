@@ -215,6 +215,6 @@ Eric James Michael Ritz C<lobbyjones@gmail.com>
 
 =head1 LICENSE
 
-GPL 3.
+GNU General Public License 3
 
 =cut
