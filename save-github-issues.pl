@@ -176,7 +176,7 @@ unless (@repositories) {
 }
 
 for ($user) {
-    print "Saving issues for user $user\n";
+    print "Saving issues for user $user\n\n";
     foreach my $repo (@repositories) {
         print "Saving issues for $repo\n";
         sleep(2);
