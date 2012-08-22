@@ -8,11 +8,10 @@ that functionality.
 
 # Required Perl Modules
 
-1. `common::sense`
-2. `DBI`
-3. `DBD::SQLite`
-4. `LWP::UserAgent`
-5. `JSON`
+1. `DBI`
+2. `DBD::SQLite`
+3. `LWP::UserAgent`
+4. `JSON`
 
 The program also requires [SQLite](http://sqlite.org).
 
