@@ -178,7 +178,8 @@ save-github-issues.pl - A program for backing up Github project issues
 
 =head1 SYNOPSIS
 
-
+This program saves the issues for Github repositories into a local
+SQLite database.
 
 =head1 USAGE
 
