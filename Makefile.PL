@@ -20,7 +20,7 @@ WriteMakefile(
     EXE_FILES => ['save-github-issues.pl'],
     META_MERGE => {
         resources => {
-            repository => 'https://github.com/squeeks/save-github-issues.git'
+            repository => 'https://github.com/ejmr/save-github-issues.git'
         }
     },
 );
