@@ -8,7 +8,6 @@ WriteMakefile(
     NAME          => 'App::Github::Issues',
     AUTHOR        => q{Eric James Michael Ritzi <lobbyjones@gmail.com>},
     ABSTRACT      => 'Allows users to backup repository issues from Github',
-    ABSTRACT_FROM => 'save-github-issues.pl',
     VERSION_FROM  => 'save-github-issues.pl',
     ($ExtUtils::MakeMaker::VERSION >= 6.3002
       ? ('LICENSE'=> 'gpl') : ()),
