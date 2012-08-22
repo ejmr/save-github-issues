@@ -152,7 +152,15 @@ GetOptions(
     "r|repo=s@" => \@repositories,
 );
 
-pod2usage() and exit unless $user;
+# Display usage information on standard output.
+sub show_help {
+    pod2usage(
+        -verbose => 99,
+        -sections => [ qw(DESCRIPTION USAGE AUTHOR LICENSE) ],
+    );
+}
+
+show_help and exit unless $user;
 
 # If the user provided no repositories then grab the issues for all of
 # their repos.
@@ -176,7 +184,7 @@ __END__
 
 save-github-issues.pl - A program for backing up Github project issues
 
-=head1 SYNOPSIS
+=head1 DESCRIPTION
 
 This program saves the issues for Github repositories into a local
 SQLite database.
