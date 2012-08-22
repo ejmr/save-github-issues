@@ -16,6 +16,8 @@
 #
 ################################################################################
 
+package App::Github::Issues;
+
 use strict;
 use warnings;
 
@@ -152,7 +154,15 @@ GetOptions(
     "r|repo=s@" => \@repositories,
 );
 
-pod2usage() and exit unless $user;
+# Display usage information on standard output.
+sub show_help {
+    pod2usage(
+        -verbose => 99,
+        -sections => [ qw(DESCRIPTION USAGE AUTHOR LICENSE) ],
+    );
+}
+
+show_help and exit unless $user;
 
 # If the user provided no repositories then grab the issues for all of
 # their repos.
@@ -176,7 +186,7 @@ __END__
 
 save-github-issues.pl - A program for backing up Github project issues
 
-=head1 SYNOPSIS
+=head1 DESCRIPTION
 
 This program saves the issues for Github repositories into a local
 SQLite database.
@@ -191,10 +201,9 @@ $ save-github-issues --user <...> [--repo <...> --repo <...>]
 
 =item -r, --repo The name the repository whose issues we want to save.
 
-This option can appear multiple times to save issues
-from muiltple repositories at once.  If this option
-is not provided then the program will save the issues
-for every repository the user owns.
+This option can appear multiple times to save issues from muiltple
+repositories at once.  If this option is not provided then the program
+will save the issues for every repository the user owns.
 
 =back
 
@@ -207,6 +216,6 @@ Eric James Michael Ritz C<lobbyjones@gmail.com>
 
 =head1 LICENSE
 
-GPL 3.
+GNU General Public License 3
 
 =cut

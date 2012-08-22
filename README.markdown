@@ -6,6 +6,21 @@ that functionality.
 
 
 
+# Installation
+
+First download the source into one directory and then run the follow
+commands:
+
+    $ perl Makefile.PL
+    $ make
+    $ make test    # (Optional)
+    $ make insall
+
+This will automatically install any Perl modules you do not have that
+the program requires, which appear below.
+
+
+
 # Required Perl Modules
 
 1. `DBI`
@@ -19,13 +34,14 @@ The program also requires [SQLite](http://sqlite.org).
 
 # Usage
 
-The program accepts the following arguments:
+The program accepts the following arguments, with the short version
+shown first followed by the longer version:
 
-1. `--user`: **Required.** This is the user whose owns the
+1. `-u, --user`: **Required.** This is the user whose owns the
 repositories you want issues from.
 
-2. `--repo`: This names the repository whose issues you want to save.
-This option may appear multiple times.  *It is optional.*  If you do
+2. `-r, --repo`: **Optional.** This names the repository whose issues
+you want to save.  This option may appear multiple times.  If you do
 not provide any `--repo` option then the program will download the
 issues for every repository the user owns.
 
