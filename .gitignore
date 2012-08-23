@@ -1,2 +1,7 @@
 # Ignore any databases of issues.
 *.sqlite
+
+# Ignore files created by Makefile.PL
+MYMETA*
+pm_to_blib
+blib/*
