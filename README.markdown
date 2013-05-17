@@ -69,14 +69,15 @@ which the Github API provides.
 
 
 
-# Future Plans
+# Other Tools
 
-I am investigating the possibility of extending this program to import
-issues into other project hosting sites such as
-[Bitbucket](https://bitbucket.org/).  This way developers will be able
-to transfer their issues from one hosting site to another.  This will
-include support to also import issues into Github itself, in the event
-that the user exported the issues from a different host.
+I have not performed any work on this program for a long time, and I
+do not expect to do so in the near future.  That does not mean the
+program is dead or abandoned; I will still accept feature ideas and
+fix bugs.  But I want to suggest that users also check out the
+[hub][3] program by [Chris Wanstrath][4].  It provides a lot of useful
+functionality for interacting with GitHub and is a terrific complement
+to `save-github-issues.pl`, in my opinion.
 
 
 
@@ -95,3 +96,5 @@ GNU General Public License Version 3
 
 [1]: https://github.com/squeeks/
 [2]: https://github.com/mcanlas/
+[3]: http://defunkt.io/hub/
+[4]: http://chriswanstrath.com/
