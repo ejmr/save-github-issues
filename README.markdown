@@ -85,7 +85,7 @@ to `save-github-issues.pl`, in my opinion.
 
 1. [Squeeks][1] `<squeek@cpan.org>`
 2. [Mark Canlas][2]
-
+3. [Stefany Dyulgerova][5]
 
 
 # License
@@ -98,3 +98,4 @@ GNU General Public License Version 3
 [2]: https://github.com/mcanlas/
 [3]: http://defunkt.io/hub/
 [4]: http://chriswanstrath.com/
+[5]: https://github.com/Stefany93

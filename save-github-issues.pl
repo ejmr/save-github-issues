@@ -45,7 +45,7 @@ my $user_agent = new LWP::UserAgent(
 
 ################################################################################
 
-# Create databasa it wich we store our issue informaion.  Connect to
+# Create the database where we store our issue informaion.  Connect to
 # it and raise all errors as fatal.  And finally creature the table we
 # store issue information without in it does not already exist.
 
